@@ -1,0 +1,55 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Dresses List</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Main Image</th>
+                <th>Additional Image1</th>
+                <th>Additional Image2</th>
+                <th>Additional Image3</th>
+                <th>Stock Quantity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dress in dresses %}
+            <tr>
+                <td>{{ dress.name }}</td>
+                <td>{{ dress.gender }}</td>
+                <td>{{ dress.category }}</td>
+                <td>{{ dress.price }}</td>
+                <td>{{ dress.discount }}</td>
+                <td>{{ dress.color }}</td>
+                <td>{{ dress.size }}</td>
+                <td><img src="{{ dress.image.url }}" alt="{{ dress.name }}" style="width: 100px;"></td>
+                <td>
+                    {% if dress.add_img1 %}<img src="{{ dress.add_img1.url }}" alt="Additional Image 1" style="width: 100px;">{% else %}No Image{% endif %}
+                </td>
+                <td>
+                    {% if dress.add_img2 %}<img src="{{ dress.add_img2.url }}" alt="Additional Image 2" style="width: 100px;">{% else %}No Image{% endif %}
+                </td>
+                <td>
+                    {% if dress.add_img3 %}<img src="{{ dress.add_img3.url }}" alt="Additional Image 3" style="width: 100px;">{% else %}No Image{% endif %}
+                </td>
+                
+               
+                <td>{{ dress.stock_quantity }}</td>
+                <td><a type="button" class="btn btn-warning">Edit</a><a type="button" class="btn btn-danger" href="{% url 'delete_dress' dress.id %}">Delete</a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

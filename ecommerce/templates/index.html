@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+ <div class="video-container">
+  <video autoplay muted loop id="background-video">
+    <source src="{% static 'images/vidd.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div> 
+
+
+<div class="banner-container mt-1">
+  <img class="banner-image" src="{% static 'images/banner.jpg' %}">
+  </div>
+
+
+
+<div class="custom-container-fluid custom-image-section">
+  <!-- Link for Men's Collection -->
+  <a href="{% url 'collections' gender='Mens' %}" class="custom-image-container">
+      <img src="{% static 'images/mens2.jfif' %}" alt="Fall Winter 2024">
+      <div class="custom-top-title">Mens</div>
+      <div class="custom-image-title">Mens</div>
+      <button class="custom-explore-button">Explore Men's Collection</button>
+  </a>
+
+  <!-- Link for Women's Collection -->
+  <a href="{% url 'collections' gender='Womens' %}" class="custom-image-container">
+      <img src="https://images.pexels.com/photos/2235071/pexels-photo-2235071.jpeg?cs=srgb&dl=pexels-manei-2235071.jpg&fm=jpg" alt="Shoes">
+      <div class="custom-top-title">Women</div>
+      <div class="custom-image-title">Womens Latest</div>
+      <button class="custom-explore-button">Explore Women's Collection</button>
+  </a>
+</div>
+
+<div class="container-fluid d-flex justify-content-center align-items-center">
+  <div class="hero-section">
+    <a href="{% url 'collections' gender='Kids' %}">
+      <div class="hero-title-top">Kids</div>
+      <div class="hero-title-bottom">Kids Latest</div>
+      <div class="hero-button">
+          <button class="btn btn-custom">Explore Kid's Collection</button>
+      </div>
+    </a>
+  </div>
+</div>
+
+<section class="services-section">
+
+<h2 class="text-center mb-5">Top Trending</h2>
+<div class="container my-5">
+  <!-- Best Sellers Title -->
+
+  <!-- Product Cards -->
+  <div class="row">
+    <!-- Product 1 -->
+    {% for dress in trending_dresses %}
+    <div class="col-md-3 col-sm-6 mb-4">
+    
+      <a href="#" class="product-card">
+        <img src="{{ dress.image.url}}" alt={{dress.image}}>
+        <div class="product-title">{{dress.name}} {{ dress.get_category_display|lower }}</div>
+        <div class="product-price">{{dress.price}}</div>
+      </a>
+   
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+</div>
+</div>
+<h2 class="text-center mb-5">Featured</h2>
+
+<div class="container">
+  <div class="image-section">
+    <img src="{% static 'images/ban23.jpg' %}" alt="Campaign Image">
+  </div>
+  <div class="content-section">
+    <h1 class="main-heading">WE WILL ALWAYS HAVE LONDON</h1>
+    <p class="description-text">The latest chapter in Sabato De Sarno’s ever-evolving vision unfolds in a new campaign by Nan Goldin with Debbie Harry.</p>
+    <a href="#" class="underline-link">DISCOVER MORE</a>
+  </div>
+</div>
+
+<div class="container my-5">
+  <div class="row text-center">
+      <div class="col-md-3 col-sm-6 mb-4">
+          <div class="feature-box">
+              <i class="fas fa-globe-americas"></i>
+              <h5>Worldwide Shipping</h5>
+              <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+          <div class="feature-box">
+              <i class="fas fa-tshirt"></i>
+              <h5>Best Quality</h5>
+              <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+          <div class="feature-box">
+              <i class="fas fa-tags"></i>
+              <h5>Best Offers</h5>
+              <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+          <div class="feature-box">
+              <i class="fas fa-lock"></i>
+              <h5>Secure Payments</h5>
+              <p>It elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="sale-banner">
+  <a href="#">SALE UP TO 70% OFF FOR ALL CLOTHES & FASHION ITEMS, ON ALL BRANDS.</a>
+</div>
+
+</div>
+</div>
+
+<h2 class="text-center mb-5">KETALPUT SERVICES</h2>
+<div class="container service-section">
+  <div class="row justify-content-center">
+      <!-- Service 1 -->
+      <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+          <div class="card service-card">
+              <img src="https://media.istockphoto.com/id/955641488/photo/clothes-shop-costume-dress-fashion-store-style-concept.jpg?s=612x612&w=0&k=20&c=ZouECh5-XOCuBzvKBQfxgyw0RIGEUg9u5F0sJiZV86s=" alt="Personalization Image">
+              <h5 class="service-title">PERSONALIZATION</h5>
+              <p class="service-desc">Emboss select bags, luggage, belts, leather accessories, and items from the collection with initials to create a  piece.</p>
+              <a href="#" class="service-link">Discover The Collection</a>
+          </div>
+      </div>
+      <!-- Service 2 -->
+      <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+          <div class="card service-card">
+              <img src="https://i0.wp.com/supplychaingamechanger.com/wp-content/uploads/2024/08/design-8576920_1280.jpeg?resize=350%2C200&ssl=1" alt="Packaging Image">
+              <h5 class="service-title">PACKAGING</h5>
+              <p class="service-desc">Choose between our online exclusive tote or boutique shopping bag to give your order the perfect finish.</p>
+              <a href="#" class="service-link">Ketalput’s Packaging</a>
+          </div>
+      </div>
+      <!-- Service 3 -->
+      <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+          <div class="card service-card">
+              <img src="https://i0.wp.com/agoodhueblog.com/wp-content/uploads/2023/08/Pink-Blush-Navy-Floral-Smocked-Midi-Dress_AGoodHueBlog.jpg?fit=800%2C1200&ssl=1&resize=350%2C200" alt="Collect in Store Image">
+              <h5 class="service-title">24 X 7 CUSTOMER SUPPORT</h5>
+              <p class="service-desc">Order online and collect your order from your preferred Gucci boutique.</p>
+              <a href="#" class="service-link">Discover How</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="container-fluid gallery-section">
+  <h2>SHOP YOUR FAVE STYLES FROM INSTAGRAM</h2>
+  <div class="gallery-row">
+      <!-- Card 1 -->
+      <div class="gallery-card">
+          <a href="https://example.com/style1" target="_blank">
+              <img src="https://img.freepik.com/free-photo/funny-stylish-sexy-smiling-beautiful-young-hippy-woman-model-summer-bright-hipster-clothes-dress-street-hat_158538-10617.jpg?ga=GA1.1.1908014316.1721369008&semt=ais_hybrid" alt="Style 1">
+          </a>
+      </div>
+      <!-- Card 2 -->
+      <div class="gallery-card">
+          <a href="https://example.com/style2" target="_blank">
+              <img src="https://img.freepik.com/free-photo/funny-stylish-sexy-smiling-beautiful-young-hippy-woman-model-summer-bright-hipster-clothes-dress-street-hat_158538-10617.jpg?ga=GA1.1.1908014316.1721369008&semt=ais_hybrid" alt="Style 2">
+          </a>
+      </div>
+      <!-- Card 3 -->
+      <div class="gallery-card">
+          <a href="https://example.com/style3" target="_blank">
+              <img src="https://img.freepik.com/free-photo/funny-stylish-sexy-smiling-beautiful-young-hippy-woman-model-summer-bright-hipster-clothes-dress-street-hat_158538-10617.jpg?ga=GA1.1.1908014316.1721369008&semt=ais_hybrid" alt="Style 3">
+          </a>
+      </div>
+      <!-- Card 4 -->
+      <div class="gallery-card">
+          <a href="https://example.com/style4" target="_blank">
+              <img src="https://img.freepik.com/free-photo/funny-stylish-sexy-smiling-beautiful-young-hippy-woman-model-summer-bright-hipster-clothes-dress-street-hat_158538-10617.jpg?ga=GA1.1.1908014316.1721369008&semt=ais_hybrid" alt="Style 4">
+          </a>
+      </div>
+      <!-- Card 5 -->
+      <div class="gallery-card">
+          <a href="https://example.com/style5" target="_blank">
+              <img src="https://img.freepik.com/free-photo/funny-stylish-sexy-smiling-beautiful-young-hippy-woman-model-summer-bright-hipster-clothes-dress-street-hat_158538-10617.jpg?ga=GA1.1.1908014316.1721369008&semt=ais_hybrid" alt="Style 5">
+          </a>
+      </div>
+  </div>
+</div>
+
+
+{% endblock %}

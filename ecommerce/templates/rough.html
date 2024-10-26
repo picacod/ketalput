@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards Section</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Container for the entire section */
+        .custom-section {
+            margin-top: 30px;
+        }
+
+        /* Card styles */
+        .custom-card {
+            position: relative;
+            overflow: hidden;
+            border: none;
+            border-radius: 0;
+        }
+
+        /* Image styling */
+        .custom-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Card content styles */
+        .custom-card-body {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            text-align: left;
+            color: white;
+            background: transparent; /* Change background to transparent */
+            padding: 20px;
+            width: calc(100% - 40px);
+        }
+
+        /* Title, paragraph, and button styles */
+        .custom-card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better visibility */
+        }
+
+        .custom-card-text {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better visibility */
+        }
+
+        .custom-btn {
+            background-color: #ffffff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .custom-btn:hover {
+            background-color: #000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <section class="container custom-section">
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card custom-card">
+                    <img src="https://via.placeholder.com/500x500" class="card-img-top" alt="Product Image 1">
+                    <div class="custom-card-body">
+                        <h5 class="custom-card-title">20% Off On Tank Tops</h5>
+                        <p class="custom-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.</p>
+                        <a href="#" class="btn custom-btn">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card custom-card">
+                    <img src="https://via.placeholder.com/500x500" class="card-img-top" alt="Product Image 2">
+                    <div class="custom-card-body">
+                        <h5 class="custom-card-title">Latest Eyewear For You</h5>
+                        <p class="custom-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.</p>
+                        <a href="#" class="btn custom-btn">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card custom-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0549/1104/1688/files/1_274d89a7-c8d7-4ac8-9681-c44c120916b1.jpg?v=1704546573" class="card-img-top" alt="Product Image 3">
+                    <div class="custom-card-body">
+                        <h5 class="custom-card-title">Let's Lorem Suit Up!</h5>
+                        <p class="custom-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac dictum.</p>
+                        <a href="#" class="btn custom-btn">Check Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

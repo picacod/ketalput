@@ -1,0 +1,381 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<section>
+    <!-- top bar -->
+    <div class=" top-bar fixed-top ">
+        <p class="m-0"> {{ gender }} </p>
+        <div class="row d-flex justify-content-between align-items-center mb-5 mt-5">
+            <div class="col-auto">
+                <button class="filter-button me-3" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <i class="fas fa-sliders-h"></i> Filter({{filter_count}})
+                </button>
+            </div>
+            <div class="offcanvas offcanvas-end w-50 vh-100 " tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasRightLabel">Filter Options</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <form method="GET" action="{% if gender %}{% url 'filter_list' gender %}{% else %}#{% endif %}">
+                    <div class="offcanvas-body ">
+                        <!-- Accordion Items -->
+                        <div class="accordion mt-5" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        Categories
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        {% for category in categories %}
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="category"
+                                                value="{{ category }}" id="category-{{ forloop.counter }}">
+                                            <label class="form-check-label" for="category-{{ forloop.counter }}">{{ category }}</label>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="accordion" id="accordionExample3">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree3" aria-expanded="false"
+                                        aria-controls="collapseThree3">
+                                        Colours
+                                    </button>
+                                </h2>
+                                <div id="collapseThree3" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample3">
+                                    <div class="accordion-body">
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="color" value="Red"
+                                                id="color-red">
+                                            <label class="form-check-label" for="color-red">
+                                                <span class="color-box" style="background-color: red;"></span> Red
+                                            </label>
+                                        </div>
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="color" value="Blue"
+                                                id="color-blue">
+                                            <label class="form-check-label" for="color-blue">
+                                                <span class="color-box" style="background-color: blue;"></span> Blue
+                                            </label>
+                                        </div>
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="color" value="Green"
+                                                id="color-green">
+                                            <label class="form-check-label" for="color-green">
+                                                <span class="color-box" style="background-color: green;"></span>
+                                                Green
+                                            </label>
+                                        </div>
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="color" value="Yellow"
+                                                id="color-yellow">
+                                            <label class="form-check-label" for="color-yellow">
+                                                <span class="color-box" style="background-color: yellow;"></span>
+                                                Yellow
+                                            </label>
+                                        </div>
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="color" value="Black"
+                                                id="color-black">
+                                            <label class="form-check-label" for="color-black">
+                                                <span class="color-box" style="background-color: black;"></span>
+                                                Black
+                                            </label>
+                                        </div>
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="color" value="White"
+                                                id="color-white">
+                                            <label class="form-check-label" for="color-white">
+                                                <span class="color-box" style="background-color: white;"></span>
+                                                White
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="accordion" id="accordionExample4">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree4" aria-expanded="false"
+                                        aria-controls="collapseThree4">
+                                        Sizes
+                                    </button>
+                                </h2>
+                                <div id="collapseThree4" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionExample4">
+                                    <div class="accordion-body">
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="size" value="small"
+                                                id="flexCheckSmall">
+                                            <label class="form-check-label" for="flexCheckSmall">S</label>
+                                        </div>
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="size" value="medium"
+                                                id="flexCheckMedium">
+                                            <label class="form-check-label" for="flexCheckMedium">M</label>
+                                        </div>
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="size" value="large"
+                                                id="flexCheckLarge">
+                                            <label class="form-check-label" for="flexCheckLarge">L</label>
+                                        </div>
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="size" value="xlarge"
+                                                id="flexCheckXLarge">
+                                            <label class="form-check-label" for="flexCheckXLarge">XL</label>
+                                        </div>
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" name="size" value="xxlarge"
+                                                id="flexCheckXXLarge">
+                                            <label class="form-check-label" for="flexCheckXXLarge">XXL</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                    </div>
+
+                    <!-- Bottom Button -->
+                    <div class="w-100 d-flex justify-content-center align-items-center mt-auto border-top bg-light fixed-bottom"
+                        style="position: absolute;z-index: 999; height: 100px;">
+                        <button type="submit" class="filter-submit-btn">
+                            Show products
+                        </button>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section>
+    {% if gender == 'Mens' %}
+    <div class="banner mb-1"
+        style="background-image: url('https://img.freepik.com/premium-photo/man-wearing-blue-jacket-shirt-with-shirt-that-says-no_1012999-30649.jpg?ga=GA1.1.1908014316.1721369008&semt=ais_hybrid');">
+
+    </div>
+    <div class="banner-content">
+        <p class="fs-4 fw-semibold ">Heading</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur temporibus eveniet aut odit ex
+            facilis ullam dolorum nobis ab consectetur sint blanditiis eum maxime in iste ipsum, hic velit impedit!</p>
+    </div>
+    {% elif gender == 'Womens' %}
+    <div class="banner mb-1"
+        style="background-image: url('https://img.freepik.com/premium-photo/man-wearing-blue-jacket-shirt-with-shirt-that-says-no_1012999-30649.jpg?ga=GA1.1.1908014316.1721369008&semt=ais_hybrid');">
+
+    </div>
+    <div class="banner-content">
+        <p class="fs-4 fw-semibold ">Heading</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur temporibus eveniet aut odit ex
+            facilis ullam dolorum nobis ab consectetur sint blanditiis eum maxime in iste ipsum, hic velit impedit!</p>
+    </div>
+    {% else %}
+    <div class="banner mb-1"
+        style="background-image: url('https://img.freepik.com/premium-photo/man-wearing-blue-jacket-shirt-with-shirt-that-says-no_1012999-30649.jpg?ga=GA1.1.1908014316.1721369008&semt=ais_hybrid');">
+
+    </div>
+    <div class="banner-content">
+        <p class="fs-4 fw-semibold ">Heading</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur temporibus eveniet aut odit ex
+            facilis ullam dolorum nobis ab consectetur sint blanditiis eum maxime in iste ipsum, hic velit impedit!</p>
+    </div>
+    {% endif %}
+
+
+  
+
+</section>
+
+<section>
+    <!-- Filtered Items -->
+    {% if filter_list %}
+    
+    <div class="card-section w-100 row">
+        <div class="row">
+            <div class="custom-text col-8">
+                Acceptance is the purest form of love.
+            </div>
+        </div>
+        <div class="row card-container">
+         {% for dress in filter_list %}
+        
+         <div class="collections-card col-lg-4 col-md-6 col-sm-12 mb-4">
+        <div id="carouselExample{{ forloop.counter }}" class="carousel slide">
+            <form action="{% url 'add_to_wishlist' dress.id %}" method="POST"
+                style="position: absolute; top: 10px; right: 20px; z-index: 10;">
+                {% csrf_token %}
+                <button type="submit" style="border: none; background: none;">
+                    <i class="far fa-heart"
+                        style="position: absolute; top: 10px; right: 20px; z-index: 10; color: black; font-size: 1rem; cursor: pointer;"></i>
+                </button>
+            </form>
+
+
+            <a href="{% url 'detail' dress.id %}">
+            <div class="carousel-inner w-100" style="height: 30rem;">
+                <div class="carousel-item active">
+                    <img src="{{ dress.image.url }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ dress.image.url }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ dress.image.url }}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+        </a>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample{{ forloop.counter }}"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample{{ forloop.counter }}"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            <div class="product-content">
+                <div class="details">
+                    <p class="product-title fs-5 m-0">{{ dress.name }}</p>
+                    <p class="fs-6 fw-bold m-0">{{ dress.price }} </p>
+                </div>
+                <!-- <div class="additional">
+                    <a href="#"> <i class="fas fa-heart"></i> Add to Wishlist</a>
+                </div> -->
+            </div>
+        </div>
+  </div>
+
+        {% endfor %}
+    
+   </div>
+
+    {% elif dresses %}
+
+    <!-- <p class="text-center fs-4 my-5">No matching items found.</p> -->
+    <div class="card-section w-100 row">
+        <div class="row">
+            <div class="custom-text col-8">
+                Acceptance is the purest form of love.
+            </div>
+        </div>
+        <div class="row card-container">
+            {% for dress in dresses %}
+           
+            <div class="collections-card col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div id="carouselExample{{ forloop.counter }}" class="carousel slide">
+                    <form id="wishlist-form-{{ dress.id }}" action="{% url 'add_to_wishlist' dress.id %}" method="POST"
+                        style="position: absolute; top: 10px; right: 20px; z-index: 10;">
+                        {% csrf_token %}
+                        <button type="submit" style="border: none; background: none;">
+
+                            {% if dress.id in wishlist_dress_ids %}
+                            <i class="fa-sharp fa-solid fa-heart"
+                                style="color: black; font-size: 1rem; cursor: pointer;"></i>
+                            {% else %}
+                            <i class="far fa-heart" style="color: black; font-size: 1rem; cursor: pointer;"></i>
+                            {% endif %}
+
+                        </button>
+                    </form>
+                    <a href="{% url 'detail' dress.id %}">
+                    <div class="carousel-inner w-100" style="height: 30rem;">
+                        <div class="carousel-item active">
+                            <img src="{{ dress.image.url }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ dress.image.url }}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ dress.image.url }}" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                </a>
+                    <button class="carousel-control-prev" type="button"
+                        data-bs-target="#carouselExample{{ forloop.counter }}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                        data-bs-target="#carouselExample{{ forloop.counter }}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+
+                    <div class="product-content">
+                        <div class="details">
+                            <p class="product-title fs-5 m-0">{{ dress.name }}</p>
+                            <p class="fs-6 fw-bold m-0">{{ dress.price }} </p>
+                        </div>
+                        <!-- <div class="additional">
+                    <a href="#"> <i class="fas fa-heart"></i> Add to Wishlist</a>
+                </div> -->
+                    </div>
+                </div>
+            </div>
+    
+            {% endfor %}
+        </div>
+    </div>
+
+    {% else %}
+    <h1>No products found</h1>
+    {% endif %}
+</section>
+
+
+<script>
+    document.getElementById('wishlist-form-{{ dress.id }}').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const formData = new FormData(this); // Gather form data
+
+        fetch(this.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest', // Indicate that it's an AJAX request
+            },
+        })
+            .then(response => {
+                if (response.ok) {
+                    // Optionally update the heart icon or handle success
+                    return response.text();
+                } else {
+                    throw new Error('Network response was not ok.');
+                }
+            })
+            .then(data => {
+                // Update the UI as necessary based on the response
+                console.log(data); // Handle any response data
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    });
+</script>
+{% endblock %}

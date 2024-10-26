@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<section>
+    <div class="product-container container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <div class="text-left mb-2">
+                    <p>{{ dress.gender }}</p>
+                </div>
+                <div class="image-gallery-container">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <img src="{{ dress.image.url }}" alt="{{ dress.name }} image" class="img-fluid shadow rounded additional-product-image">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <img src="{{ dress.add_img1.url }}" alt="{{ dress.name }} image" class="img-fluid shadow rounded additional-product-image">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <img src="{{ dress.add_img2.url }}" alt="{{ dress.name }} image" class="img-fluid shadow rounded additional-product-image">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <img src="{{ dress.add_img3.url }}" alt="{{ dress.name }} image" class="img-fluid shadow rounded additional-product-image">
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div class="col-lg-6 align-self-start">
+                <div class=" product-detail">
+                    <p>{{ dress.category }}</p>
+                    <h2 class="product-title">{{ dress.name }}</h2>
+                    <button type="button" class="rating-btn">3 <i class="fa-sharp fa-solid fa-star" style="color: #FFD43B;"></i> Rating 0 Review</button>
+                    <p class="mt-5 price">₹ {{ dress.price }}</p>
+                    <h5>Select Size</h5>
+                    <div class="row mt-2">
+                        <div class="col-auto">
+                            <div type="button" class="size-box">S</div>
+                        </div>
+                        <div class="col-auto">
+                            <div type="button" class="size-box">M</div>
+                        </div>
+                        <div class="col-auto">
+                            <div type="button" class="size-box">L</div>
+                        </div>
+                        <div class="col-auto">
+                            <div type="button" class="size-box">XL</div>
+                        </div>
+                        <div class="col-auto">
+                            <div type="button" class="size-box">XXL</div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="quantity-selector mt-5 d-flex align-items-center">
+                        <span class="quantity-label me-3">Quantity</span>
+                        <div class="quantity-input-container position-relative">
+                            <button type="button" class="btn quantity-btn decrement-btn" onclick="decrementQuantity()">-</button>
+                            <input type="number" id="quantity" class="quantity-input text-center" value="1" min="1">
+                            <button type="button" class="btn quantity-btn increment-btn" onclick="incrementQuantity()">+</button>
+                        </div>
+                    </div>
+                    
+                    <hr style="background-color: rgb(3, 3, 1); height: 1px; border: none;">
+
+                    <div class="delivery-option mt-4 d-flex align-items-center">
+                        <i class="fa fa-truck" aria-hidden="true" style="font-size: 24px; margin-right: 10px;"></i>
+                        <span class="me-5">Enter your pincode for estimated delivery timelines</span>
+                       
+                        <button class="btn-button">Select Pincode</button>
+                    </div>
+
+                    <hr style="background-color: rgb(3, 3, 1); height: 1px; border: none;">
+
+                    <button class="btn-button btn-lg shadow-sm" style="  width: 200px; border-radius: 30px; transition: background-color 0.3s, transform 0.2s;">Add to Wishlist</button>
+                    <span class="me-5"></span>
+                    <button class="btn-button btn-lg shadow-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function incrementQuantity() {
+    const quantityInput = document.getElementById('quantity');
+    quantityInput.value = parseInt(quantityInput.value) + 1;
+}
+
+function decrementQuantity() {
+    const quantityInput = document.getElementById('quantity');
+    if (quantityInput.value > 1) {
+        quantityInput.value = parseInt(quantityInput.value) - 1;
+    }
+}
+
+</script>
+{% endblock %}

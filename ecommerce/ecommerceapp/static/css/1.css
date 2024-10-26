@@ -1,0 +1,1343 @@
+/* Ensure the body and html cover the full height */
+body, html {
+  margin: 0;
+  padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    /* background-color: rgb(202, 187, 154); */
+    box-sizing: border-box;
+}
+
+
+
+/* Video container styling */
+.video-container {
+  margin: 0;
+  padding: 0;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+    margin-bottom: 0px;
+}
+
+/* Styling the video to cover the background */
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0; 
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    filter: brightness(0.5);
+}
+
+
+.image-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.5s ease;
+  z-index: 1; /* Above the video */
+}
+
+.image-item {
+  min-width: 100%; /* Each image takes full width */
+  height: 100%; /* Full height of video */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.5s ease;
+}
+
+
+
+/* Show the first image by default */
+.image-item:first-child {
+  opacity: 1; /* Make the first image visible */
+}
+
+/* For scrolling effect */
+.video-container.scrolled .image-item {
+  opacity: 0; /* Reset opacity for all images */
+}
+
+.video-container.scrolled .image-item.show {
+  opacity: 1; /* Make the active image visible */
+}
+
+/* Content styling */
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+
+
+.image-container {
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    height: auto;
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 350px;
+    transition: transform 0.5s ease;
+    border-radius: 20px;
+}
+
+/* Hover Effect on Image */
+.image-container:hover img {
+    transform: scale(1.1);
+    border-radius: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .service-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+.navbar{
+  height: 4rem;
+  z-index: 1000;
+  background-color: rgb(231, 231, 231);
+
+ 
+}
+.navbar-brand {
+    margin-left: 50px;
+ 
+}
+
+/* .navbar-nav {
+    margin-right: 430px;
+} */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background-color: white; /* Set your desired background color */
+    padding: 1rem; /* Optional: Add padding for better spacing */
+  }
+
+  .navbar-nav .nav-link {
+    color: rgb(156, 148, 148); /* Maintain the text color */
+  }
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  margin-left: 50px;
+
+}
+
+.navbar-nav .nav-link i {
+
+  font-size: 20px; /* Adjust icon size */
+  padding: 0 !important; /* No extra padding */
+  display: inline-block; /* Align icon properly */
+  border: none !important; /* Remove border */
+  box-shadow: none !important; /* Remove shadow */
+}
+
+
+
+/* .navbar-nav .nav-link {
+    position: relative;
+    padding: 10px 15px;
+    color: black;
+    text-transform: uppercase;
+    margin-left: 50px;
+} */
+
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%; /* Ensure yellow underline appears on all links when hovered */
+}
+
+
+
+.navbar-brand img {
+    width: 210px;
+    height: 30px;
+    padding-top: 7px;
+}
+
+h5 {
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+p {
+    font-size: 14px;
+    color: #555;
+}
+
+.h1 {
+   margin: 50%;
+}
+
+.custom-text {
+ 
+  margin-left: 20px; /* Add space on the left */
+  margin-top: 20px; /* Add space on the top */
+  color: black;
+  font-family:"Gill Sans", sans-serif;
+  font-size: 80px;
+  padding: 50px 200px 100px;
+}
+
+.product-card {
+    position: relative;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid transparent;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    padding: 10px; /* Added padding for spacing */
+    height: 100%;
+    
+  }
+
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-color: #ccc;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 450px;
+  }
+  
+  .product-title, .product-price {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .card-container{
+   
+   padding: 0px 100px 0px 100px;
+  }
+
+  .collections-card {
+margin: 20px;
+  width: 500px;
+    transition: border 0.3s ease, transform 0.3s ease; /* Transition for smooth effect */
+}
+
+.collections-card:hover {
+    transform: scale(1.05); /* Slightly increase the size of the container */
+}
+/* Banner Section */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjust space between image and content */
+    padding: 20px;
+  }
+  
+  .image-section {
+    flex: 1; /* Allow the image section to take 50% of the space */
+  }
+  
+  .image-section img {
+    width: 100%; /* Image should take the full width of its container */
+    object-fit: cover;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .content-section {
+    flex: 1; /* Allow the content section to take 50% of the space */
+    padding-left: 130px; /* Add padding to separate it from the image */
+    box-sizing: border-box; /* Include padding in width calculation */
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .main-heading {
+    font-family: 'Arial, sans-serif';
+    font-size: 24px;
+    font-weight: bold;
+
+  }
+  
+  .description-text {
+    font-family: 'Arial, sans-serif';
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .underline-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-family: 'Arial, sans-serif';
+    font-size: 16px;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+    color: black;
+    padding-bottom: 5px;
+  }
+  
+  .underline-link:hover {
+    border-bottom: 2px solid black;
+  }
+  
+  /* Media query for screens smaller than 768px */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Stack elements vertically */
+      text-align: center;
+    }
+  
+    .image-section {
+      width: 100%;
+      margin-bottom: 20px; /* Add spacing between image and text */
+    }
+  
+    .image-section img {
+      width: 100%;
+    }
+  
+    .content-section {
+      width: 100%; /* Content takes full width */
+      padding: 0; /* Remove padding to match mobile layout */
+    }
+  
+    .main-heading {
+      font-size: 20px; /* Reduce font size for heading */
+    }
+  
+    .description-text {
+      font-size: 14px; /* Reduce font size for text */
+    }
+  
+    .underline-link {
+      font-size: 14px; /* Reduce font size for link */
+    }
+  }
+  
+  .feature-box {
+    text-align: center;
+    padding: 20px;
+    padding-top: 50px;
+}
+.feature-box i {
+    font-size: 40px;
+    color: #333;
+    margin-bottom: 15px;
+}
+.feature-box h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.feature-box p {
+    color: #666;
+}
+
+.sale-banner {
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    padding-bottom: 50px;
+    border: 2px black;
+  }
+  
+  .sale-banner a {
+    color: #2b1e1e; /* Dark text color */
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .sale-banner a:hover {
+    color: blue; /* Change to a different color on hover */
+  }
+  
+  .ketalput-service-section {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.ketalput-service-card {
+    padding: 20px;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.ketalput-service-card:hover {
+    transform: scale(1.05);
+}
+
+.ketalput-service-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.ketalput-service-card h4 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.ketalput-service-card p {
+    color: #666;
+    margin: 15px 0;
+}
+
+.ketalput-service-card a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+      /* Container for the entire section */
+      .custom-section {
+        margin-top: 30px;
+    }
+
+    /* Card styles */
+    .custom-card {
+        position: relative;
+        overflow: hidden;
+        border: none;
+        border-radius: 0;
+    }
+
+    /* Image styling */
+    .custom-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Card content styles */
+    .custom-card-body {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        text-align: left;
+        color: white;
+        background: transparent; /* Change background to transparent */
+        padding: 20px;
+        width: calc(100% - 40px);
+    }
+
+    /* Title, paragraph, and button styles */
+    .custom-card-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better visibility */
+    }
+
+    .custom-card-text {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better visibility */
+        color: white;
+    }
+
+    .custom-btn {
+        background-color: #ffffff;
+        color: #000;
+        border: none;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .custom-btn:hover {
+        background-color: #000;
+        color: #ffffff;
+    }
+
+    h2 {
+      font-size: 24px; /* Adjust font size */
+      font-family: 'Arial Narrow', Arial, sans-serif; /* Change font family */
+      margin-bottom: 15px; /* Reduce bottom margin */
+  }
+  
+  /* Custom styling for the bottom div to reduce space */
+  .container.my-5 {
+      margin-top: 30px; /* Reduce space above */
+      margin-bottom: 30px; /* Reduce space below */
+  }
+
+
+
+  .custom-container-fluid {
+    padding: 0 15px; /* Add padding to the container for spacing */
+  }
+
+  .custom-image-section {
+    height: 100vh;
+    display: flex;
+    gap: 20px; /* Adds gap between the images */
+    flex-wrap: nowrap; /* Prevents wrapping until specified in media query */
+  }
+  
+  .custom-image-container {
+    position: relative;
+    flex: 1;
+    padding: 5px; /* Adds slight padding around the image */
+    overflow: hidden;
+    background-color: #f9f9f9; /* Background for space around image */
+  }
+
+  .custom-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px; /* Adds rounded corners to images */
+  }
+  
+  .custom-image-title, .custom-top-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white color */
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: transparent; /* Make background completely transparent */
+    border: none; /* Remove any borders */
+  }
+
+  .custom-image-title {
+    bottom: 130px;
+  }
+  
+  .custom-top-title {
+    top: 60px;
+  }
+
+  .custom-explore-button {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1); /* Adjusted background to allow blur visibility */
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    backdrop-filter: blur(10px); /* Blur effect on the background */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Border to highlight the button */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+  }
+  
+  .custom-explore-button:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+
+  @media (max-width: 768px) {
+    /* On screens smaller than 768px, stack images vertically and adjust height */
+    .custom-image-section {
+        flex-direction: column;
+        height: 150vh; /* Increase the height to make images more prominent */
+    }
+  
+    .custom-image-container {
+        height: 75vh; /* Each image container will have a taller height */
+    }
+  
+    /* Reduce size further for small screens */
+    .custom-image-title, .custom-top-title {
+        font-size: 12px; /* Smaller title font size */
+        padding: 2px 5px;
+    }
+  
+    .custom-explore-button {
+        font-size: 10px; /* Smaller button font size */
+        padding: 4px 8px;
+    }
+  }
+
+
+  .hero-section {
+    position: relative;
+    width: calc(100% - 40px); /* Gap on both sides */
+    height: calc(100vh - 40px); /* Gap on top and bottom */
+    background-image: url("../images/kids.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 20px; /* Creates the border gap */
+    border: 2px solid #ddd; /* Optional: Add a border */
+  }
+  
+  .hero-title-top {
+    position: absolute;
+    left: 50%;
+    top: 60px;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white color */
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: transparent; /* Make background completely transparent */
+    border: none; /* Remove any borders */
+  }
+  
+  .hero-title-bottom {
+    bottom: 130px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white color */
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: transparent; /* Make background completely transparent */
+    border: none; /* Remove any borders */
+  }
+  
+  .hero-button {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2); /* Slightly transparent white background */
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Increased padding */
+    font-size: 14px;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    backdrop-filter: blur(10px); /* Apply blur effect to the background */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Border to highlight the button */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+  }
+  
+  .btn-custom {
+    background-color: transparent; /* Make the inner button background transparent */
+    color: white;
+    border: none;
+    font-size: 1em;
+    padding: 0; /* Remove padding to avoid conflict */
+  }
+  
+  .hero-button:hover {
+    background: rgba(0, 0, 0, 0.3); /* Slightly darker on hover */
+  }
+  
+  /* Responsive adjustments */
+  @media only screen and (max-width: 768px) {
+    .hero-title-top, .hero-title-bottom {
+        font-size: 1.2em;
+    }
+  
+    .btn-custom {
+        font-size: 0.9em;
+    }
+  }
+
+  h2 {
+    font-size: 24px; /* Adjust font size */
+    font-family: 'Arial Narrow', Arial, sans-serif; /* Change font family */
+    margin-bottom: 10px; /* Reduce bottom margin */
+}
+
+/* Custom styling for the bottom div to reduce space */
+.container.my-5 {
+    margin-top: 30px; /* Reduce space above */
+    margin-bottom: 30px; /* Reduce space below */
+}
+
+.service-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+/* Updated card styling */
+.service-card {
+  margin: 20px;
+  transition: transform 0.3s;
+  height: 500px; /* Increased height */
+  width: 100%; /* Full width of the container */
+  max-width: 450px; /* Optional max width for large screens */
+  border: none;
+  background-color: inherit ;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Updated image styling */
+.service-card img {
+  width: 100%;
+  height: 300px; /* Set height to create uniform image display */
+  object-fit: cover;
+}
+
+.service-title {
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.service-desc {
+  margin-top: 10px;
+  color: #6c757d;
+}
+
+.service-link {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.service-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .service-card {
+      height: auto; /* Allow card to resize based on content */
+      margin-bottom: 30px;
+  }
+
+  .service-card img {
+      height: auto; /* Adjust image height */
+  }
+}
+
+
+
+
+/* Optional: adjust dropdown item styles */
+.dropdown-item {
+  color: #000; /* Black text color */
+}
+
+.dropdown-item:hover {
+  background-color: #e0f0ff; /* Slightly darker shade on hover */
+}
+
+
+
+.form-range {
+  width: 100%;
+  margin: 10px 0;
+}
+
+
+.filter-sidebar {
+
+  padding: 20px;
+  border-radius: 5px;
+  margin-left: 300px;
+}
+
+.filter-section h5 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.filter-section a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.filter-section a:hover {
+  text-decoration: none;
+ 
+}
+
+.filter-section .fas {
+  transition: transform 0.3s ease;
+}
+
+.filter-section .collapsed .fas {
+  transform: rotate(0deg);
+}
+
+.filter-section .collapse.show .fas {
+  transform: rotate(180deg);
+}
+
+hr {
+  border-top: 1px solid #ddd;
+}
+
+
+/* Adding lines for min and max values */
+#minPrice, #maxPrice {
+  position: relative;
+  top: -10px; /* Position labels above the slider */
+  font-weight: bold; /* Bold text */
+}
+
+
+
+.btn-block{
+  color: #dddddd;
+}
+
+.price-control {
+  border-radius: 5px;
+  width: 150px; /* Increase width as needed */
+  padding: 10px; /* Optional: adds space inside the input */
+  font-size: 16px; /* Optional: increases font size for better readability */
+}
+
+.color-box {
+  display: inline-block;
+  width: 20px;  /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+  margin-right: 10px; /* Space between color box and label */
+  border-radius: 30px; /* Optional: rounded corners */
+  vertical-align: middle; /* Align vertically with text */
+}
+
+.color-box{
+  margin-left: 10px;
+}
+
+
+button.filter-button {
+ 
+  color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover style */
+button.filter-button:hover {
+ 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+i.fas.fa-filter {
+  font-size: 18px;
+}
+
+
+.banner-container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0; /* Changed from -1 to 0 */
+
+}
+
+.banner-image {
+  width: 100%; /* Ensure the image takes the full width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+
+.wishlist-bar {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  padding: 0 20px;
+}
+
+/* .banner img {
+  width: 100%;
+  position: relative !important; 
+} */
+
+.top-bar {
+  top: 4rem;
+  position: fixed;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: rgb(231, 231, 231);
+  z-index: 1000;
+}
+
+.banner {
+ min-height: 800px;
+ background-attachment: fixed;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ position: relative;
+ top: 8rem;
+ left: 0;
+ right: 0;
+ z-index: 998;
+
+}
+
+.banner-content{
+  position: absolute;
+  left: 100px;
+  bottom: 20%;
+  z-index: 999;
+  width: 50%;
+
+  
+}
+
+
+
+.card-section {
+  position: relative; 
+
+  padding: 20px; 
+  width: 100%;
+  margin-top: 50px;
+  z-index: 999;
+}
+
+
+/*===== [MOBILE VIEW] ====== */
+
+@media (max-width: 768px){
+
+  .banner img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    position: relative;
+  }
+
+  .banner-content {
+    top: 50%;
+    width: 100%;
+    height: fit-content;
+    padding: 0rem 2rem;
+    position: absolute;
+    color: rgb(0, 0, 0);
+    left: 0rem; 
+    z-index: 9999;
+  }
+
+}
+
+
+.accordion-button:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: transparent;
+  background-color: transparent !important;
+}
+
+.accordion-item {
+  border: none;
+}
+
+.accordion-button {
+  border: none;
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+.accordion-body {
+  border-top: none;
+}
+
+/* Check box */
+.form-check-input {
+  width: 18px;
+  height: 18px;
+  transform: scale(1.5);
+  margin-right: 10px;
+}
+
+.form-check-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* filter submit button */
+.filter-submit-btn {
+
+  padding: 16px 60px; /* Adjust width */
+  border-radius: 5rem;
+  border: 1px solid black;
+  color: white;
+  background-color: black;
+  font-size: small;
+
+}
+
+.filter-submit-btn:hover {
+  transition: 0.3s;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+}
+
+/* Offcanvas body - scrollable */
+.offcanvas-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Allow scrolling */
+  max-height: calc(100vh - 80px); /* Deduct space for the submit button */
+  padding-bottom: 120px; /* Add space so content doesn't overlap with button */
+}
+footer {
+  background-color: #f8f9fa; /* Light background color */
+  padding: 60px 0;
+}
+
+footer h6 {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+footer ul li a {
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
+footer .social-icons a {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+footer .footer-logo {
+  max-width: 150px;
+}
+
+footer p {
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+footer .list-inline-item a {
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  color: #666;
+  text-decoration: none;
+}
+
+footer .list-inline-item a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 30px 0;
+  }
+
+  footer h6 {
+    font-size: 14px;
+  }
+
+  footer ul li a {
+    font-size: 12px;
+  }
+  
+  .footer-logo {
+    max-width: 120px;
+  }
+}
+
+.footer-container {
+  max-width: 1390px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+
+
+.form-check-input {
+  width: 20px; /* Change the size of the checkbox */
+  height: 20px;
+  accent-color: #000; /* Change the color of the checkbox */
+  cursor: pointer; /* Add pointer cursor */
+  border-radius: 0.25rem; /* Optional: Round corners */
+  border: 2px solid #ccc; /* Optional: Add border */
+}
+
+/* Style the label next to the checkbox */
+.form-check-label {
+  margin-left: 10px; /* Add some space between the checkbox and the label */
+  font-size: 14px; /* Adjust font size */
+  color: #333; /* Change text color */
+}
+
+/* Checkbox hover effect */
+.form-check-input:hover {
+  border-color: #000; /* Change border color on hover */
+}
+
+/* Checkbox checked state */
+.form-check-input:checked {
+  background-color:black; /* Change background color when checked */
+  border-color: black; /* Change border color when checked */
+}
+
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+
+.parallax-wrapper {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.image-scrolling {
+  display: flex;
+  gap: 20px; /* Adds space between images */
+  align-items: center;
+}
+
+.image-scrolling img {
+  height: 50px; /* Adjust height as needed */
+  flex-shrink: 0; /* Prevent shrinking when scrolling */
+  margin-left: 10px;
+}
+
+#background-video {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+
+/* Product Detail Page Styles */
+/* Main Product Image */
+.main-product-image {
+  max-height:500px;
+  transition: transform 0.3s ease-in-out;
+  width: 80%;
+}
+
+.main-product-image:hover {
+  transform: scale(1.05);
+ 
+}
+
+/* Scrollable Image Gallery */
+.image-gallery-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.additional-product-image {
+  max-height: 500px; /* Increase the max height for larger images */
+  width: 100%; /* Make the images responsive to container width */
+  object-fit: cover; /* Ensures images retain their aspect ratio within the set dimensions */
+  margin: 5px 0;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.additional-product-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Container and Button Styles */
+.product-container {
+  max-width: 80%;
+  margin-top: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-title {
+  font-size: 2rem;
+  font-weight: bold;
+
+}
+
+.product-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.btn-button {
+  padding: 10px;
+  width: 200px;
+  border-radius: 30px;
+  background-color:rgb(165, 163, 163);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-button:hover {
+  background-color: rgb(156, 148, 148);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgb(156, 148, 148);
+}
+
+
+
+.product-detail{
+  margin-top: 10px;
+  padding:30px;
+ 
+  
+}
+
+.rating-btn{
+  width: 200px;
+  border: 1px solid rgb(190, 186, 186);
+  border-radius: 20px;
+
+}
+
+.price{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.size-selection {
+  text-align: left;
+}
+
+.size-box {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.size-box:hover {
+  background-color: rgb(190, 186, 186);;
+  color: white;
+  border-color:rgb(190, 186, 186);;
+}
+
+.size-box.selected {
+  background-color: rgb(190, 186, 186);;
+  color: white;
+  border-color: rgb(190, 186, 186);;
+}
+
+.quantity-selector {
+  max-width: 300px; /* Adjust as needed */
+  margin-top: 10px;
+}
+
+.quantity-label {
+  margin-right: 10px; /* Spacing between label and input */
+  font-size: 1.2rem;  /* Adjust font size as needed */
+}
+
+.quantity-btn {
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  padding: 0;
+}
+
+.quantity-input {
+  width: 60px;
+  height: 40px;
+  font-size: 1rem;
+border: 0px;
+  text-align: center;
+}
+
+.quantity-input-container{
+  border: 1px solid;
+  border-radius: 10px;
+  
+}
